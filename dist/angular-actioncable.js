@@ -99,7 +99,9 @@ ngActionCable.factory('ActionCableConfig', function() {
   var _wsUri;
   var config= {
     autoStart: true,
-    debug: false
+    debug: false,
+    reconnectIntervalTime: 7537,
+    timeoutTime: 20143
   };
   Object.defineProperty(config, 'wsUri', {
     get: function () {
@@ -234,8 +236,6 @@ ngActionCable.factory('ActionCableConfig', function() {
 // Actions are start() and stop()
 ngActionCable.factory('ActionCableSocketWrangler', ['$rootScope', 'ActionCableWebsocket', 'ActionCableConfig', 'ActionCableController',
 function($rootScope, ActionCableWebsocket, ActionCableConfig, ActionCableController) {
-  var reconnectIntervalTime= 7537;
-  var timeoutTime= 20143;
   var websocket= ActionCableWebsocket;
   var controller= ActionCableController;
   var _live= false;
@@ -243,6 +243,7 @@ function($rootScope, ActionCableWebsocket, ActionCableConfig, ActionCableControl
   var _reconnectTimeout= false;
   var setReconnectTimeout= function(){
     stopReconnectTimeout();
+    var timeoutTime= ActionCableConfig.timeoutTime;
     _reconnectTimeout = _reconnectTimeout || setTimeout(function(){
       if (ActionCableConfig.debug) console.log("ActionCable connection might be dead; no pings received recently");
       connection_dead();
@@ -260,6 +261,7 @@ function($rootScope, ActionCableWebsocket, ActionCableConfig, ActionCableControl
     setReconnectTimeout();
   };
   var startReconnectInterval= function(){
+    var reconnectIntervalTime= ActionCableConfig.reconnectIntervalTime;
     _connecting= _connecting || setInterval(function(){
       connectNow();
     }, reconnectIntervalTime + Math.floor(Math.random() * reconnectIntervalTime / 5));

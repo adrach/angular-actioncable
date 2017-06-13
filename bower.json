@@ -1,15 +1,16 @@
 {
   "name": "angular-actioncable",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Connect Angular to ActionCable",
   "main": "./dist/angular-actioncable.js",
   "authors": [
     "Brian Giaraffa",
-    "Cristian Dugacicu"
+    "Cristian Dugacicu",
+    "Andrew Drach"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/angular-actioncable/angular-actioncable.git"
+    "url": "https://github.com/adrach/angular-actioncable.git"
   },
   "license": "MIT",
   "keywords": [
@@ -17,7 +18,7 @@
     "actioncable",
     "rails"
   ],
-  "homepage": "https://github.com/angular-actioncable/angular-actioncable#readme",
+  "homepage": "https://github.com/adrach/angular-actioncable#readme",
   "moduleType": [],
   "ignore": [
     "**/.*",

@@ -8,7 +8,9 @@ ngActionCable.factory('ActionCableConfig', function() {
   var _wsUri;
   var config= {
     autoStart: true,
-    debug: false
+    debug: false,
+    reconnectIntervalTime: 7537,
+    timeoutTime: 20143
   };
   Object.defineProperty(config, 'wsUri', {
     get: function () {

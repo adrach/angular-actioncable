@@ -1,6 +1,6 @@
 {
   "name": "angular-actioncable",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Connect Angular to ActionCable",
   "main": "dist/angular-actioncable.min.js",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:angular-actioncable/angular-actioncable.git"
+    "url": "git@github.com:adrach/angular-actioncable.git"
   },
   "keywords": [
     "actioncable",
@@ -25,13 +25,14 @@
   ],
   "contributors": [
     "Brian Giaraffa",
-    "Cristian Dugacicu"
+    "Cristian Dugacicu",
+    "Andrew Drach"
   ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/angular-actioncable/angular-actioncable/issues"
   },
-  "homepage": "https://github.com/angular-actioncable/angular-actioncable#readme",
+  "homepage": "https://github.com/adrach/angular-actioncable#readme",
   "dependencies": {
     "angular": "<2.0.0",
     "angular-websocket": "^2.0.0"
