@@ -275,16 +275,20 @@ function($rootScope, ActionCableWebsocket, ActionCableConfig, ActionCableControl
   var connection_dead= function(){
     if (_live) { startReconnectInterval(); }
     if (ActionCableConfig.debug) console.log("socket close");
+    $rootScope.$broadcast("ActionCableSocketWrangler:connection_dead");
     $rootScope.$apply();
   };
   websocket.on_connection_close_callback= connection_dead;
+
   var connection_alive= function(){
     stopReconnectInterval();
     setReconnectTimeout();
     if (ActionCableConfig.debug) console.log("socket open");
+    $rootScope.$broadcast("ActionCableSocketWrangler:connection_alive");
     $rootScope.$apply();
   };
   websocket.on_connection_open_callback= connection_alive;
+
   var methods= {
     start: function(){
       if (ActionCableConfig.debug) console.info("Live STARTED");
